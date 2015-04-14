@@ -2,6 +2,7 @@
 
 var gulp = require('gulp'),
     sass = require('gulp-sass'),
+    gutil = require('gulp-util'),
     buffer = require('vinyl-buffer'),
     source = require('vinyl-source-stream'),
     connect = require('gulp-connect'),
@@ -26,6 +27,9 @@ gulp.task('build-es6', function () {
         .transform(babelify)
         .require('./src/scripts/bootstrap.js', {entry: true})
         .bundle()
+        .on('error', function (err) {
+            gutil.log('Browserify error.');
+        })
         .pipe(plumber())
         .pipe(source('bootstrap.js'))
         .pipe(buffer())
