@@ -38,3 +38,6 @@ Session.vim
 .netrwhist
 *~
 
+### Application ###
+public/scripts
+public/styles
