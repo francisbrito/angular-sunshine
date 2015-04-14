@@ -3,7 +3,7 @@
 var angular = require('angular'),
     angularRoute = require('angular-route');
 
-var SettingsController = require('./controllers/settings');
+var {SettingsController} = require('./controllers/settings');
 
 module.exports = function init() {
     console.log('Application initialized.');
