@@ -24,14 +24,14 @@ gulp.task('build-sass', function () {
 gulp.task('build-es6', function () {
     return browserify({debug: true})
         .transform(babelify)
-        .require('./src/index.js', {entry: true})
+        .require('./src/scripts/bootstrap.js', {entry: true})
         .bundle()
         .pipe(plumber())
-        .pipe(source('index.js'))
+        .pipe(source('bootstrap.js'))
         .pipe(buffer())
         .pipe(sourcemap.init({loadMaps: true}))
         .pipe(sourcemap.write('./'))
-        .pipe(gulp.dest('./public/js/'));
+        .pipe(gulp.dest('./public/scripts/'));
 });
 
 gulp.task('serve', function () {
