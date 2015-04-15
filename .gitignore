@@ -38,6 +38,10 @@ Session.vim
 .netrwhist
 *~
 
+### Sass ###
+.sass-cache
+*.css.map
+
 ### Application ###
 public/scripts
 public/styles
