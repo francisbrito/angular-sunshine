@@ -16,7 +16,7 @@ gulp.task('default', ['watch-www', 'watch-src', 'watch-styles', 'build',  'serve
 gulp.task('build', ['build-sass', 'build-es6'], function () {});
 
 gulp.task('build-sass', function () {
-    return gulp.src('./styles/**/*.scss')
+    return gulp.src('./src/styles/**/*.scss')
         .pipe(plumber())
         .pipe(sass())
         .pipe(gulp.dest('./public/styles/'));
@@ -55,7 +55,7 @@ gulp.task('watch-www', function () {
 });
 
 gulp.task('watch-styles', function () {
-    return gulp.watch('./styles/**/*.scss', ['build-sass']);
+    return gulp.watch('./src/styles/**/*.scss', ['build-sass']);
 });
 
 gulp.task('livereload', function () {
