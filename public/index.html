@@ -6,7 +6,23 @@
         <meta name="viewport" content="initial-scale=1.0,width=device-width">
     </head>
     <body>
-        <section ng-view></section>
+        <section class="view-settings view" ng-controller="SettingsController as settings" ng-hide="settings.isLocationSet()" ng-cloak>
+            <form ng-submit="settings.updateLocation()">
+                <label for="location">What's your current location?</label>
+                <input type="text" name="location" placeholder="e.g: Santo Domingo, DO" ng-model="settings.location" >
+            </form>
+        </section>
+        <section class="view-weather view" ng-controller="WeatherController as weather" ng-show="weather.isLocationSet()" ng-cloak>
+            <div class="selected-forecast">
+                <h3>{{weather.selectedForecast.weather[0].main}}</h3>
+                <p>{{weather.selectedForecast.weather[0].description}}</p>
+            </div>
+            <ul class="list-forecast list">
+                <li class="forecast" ng-repeat="forecast in weather.forecasts" ng-click="weather.selectForecast($index)">
+                    {{forecast.dt * 1000 | date:"dd/MM/yyyy"}} - {{forecast.weather[0].description}}
+                </li>
+            </ul>
+        </section>
         <script src="/scripts/bootstrap.js"></script>
     </body>
 </html>
