@@ -59,6 +59,6 @@ gulp.task('watch-styles', function () {
 });
 
 gulp.task('livereload', function () {
-    return gulp.src('./public/**/*.{js,html}')
+    return gulp.src('./public/**/*.{js,html,css}')
         .pipe(connect.reload());
 });
