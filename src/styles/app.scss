@@ -1,16 +1,17 @@
 @import 'normalize/normalize';
 
 $baseColor: #4040F0;
+$baseFontSize: 16px;
 
 [ng-app="sunshine"] {
-    height: 100%;
     width: 100%;
+    height: 100%;
 
     body {
         width: 100%;
         height: 100%;
         padding: 1rem;
-        font-size: 16px;
+        font-size: $baseFontSize;
         box-sizing: border-box;
         background-color: $baseColor;
     }
@@ -33,6 +34,12 @@ $baseColor: #4040F0;
 
             h3, p {
                 margin: 0;
+            }
+
+            h3 {
+                font-size: 5rem;
+                font-weight: lighter;
+                line-height: 5rem;
             }
         }
 
