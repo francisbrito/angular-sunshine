@@ -11,7 +11,7 @@ var gulp = require('gulp'),
     sourcemap = require('gulp-sourcemaps'),
     browserify = require('browserify');
 
-gulp.task('default', ['watch-www', 'watch-src', 'watch-styles', 'watch-templates', 'build', 'copy-templates', 'serve'], function () {});
+gulp.task('default', ['watch-www', 'watch-src', 'watch-styles', 'build',  'serve'], function () {});
 
 gulp.task('build', ['build-sass', 'build-es6'], function () {});
 
@@ -38,11 +38,6 @@ gulp.task('build-es6', function () {
         .pipe(gulp.dest('./public/scripts/'));
 });
 
-gulp.task('copy-templates', function () {
-    return gulp.src('./src/templates/**/*.html')
-        .pipe(gulp.dest('./public/templates'));
-});
-
 gulp.task('serve', function () {
     return connect.server({
         root: './public',
@@ -61,10 +56,6 @@ gulp.task('watch-www', function () {
 
 gulp.task('watch-styles', function () {
     return gulp.watch('./styles/**/*.scss', ['build-sass']);
-});
-
-gulp.task('watch-templates', function () {
-    return gulp.watch('./src/templates/**/*.html', ['copy-templates']);
 });
 
 gulp.task('livereload', function () {
