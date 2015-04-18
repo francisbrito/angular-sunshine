@@ -1,7 +1,8 @@
 @import 'normalize/normalize';
 
-$baseColor: #4040F0;
+$baseColor: #21B1DF;
 $baseFontSize: 16px;
+$baseContrastColor: #FFF;
 
 [ng-app="sunshine"] {
     width: 100%;
@@ -27,6 +28,7 @@ $baseFontSize: 16px;
 
         .selected-forecast {
             flex: 1;
+            color: $baseContrastColor;
             display: flex;
             align-self: center;
             align-items: center;
@@ -49,7 +51,7 @@ $baseFontSize: 16px;
     }
 
     .list {
-        padding-left: 0;
         list-style: none;
+        padding-left: 0;
     }
 }
