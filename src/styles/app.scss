@@ -42,6 +42,10 @@ $baseContrastColor: #FFF;
                 font-weight: lighter;
                 line-height: 5rem;
             }
+
+            .forecast-icon {
+                font-size: 3rem;
+            }
         }
 
         .list-forecast {
@@ -51,14 +55,28 @@ $baseContrastColor: #FFF;
             background-color: $baseContrastColor;
 
             .forecast {
+                cursor: pointer;
                 display: flex;
                 text-align: left;
                 align-items: center;
+                border-bottom: 1px solid #EEE;
+
+                .forecast-icon {
+                    font-size: 1.5rem;
+                }
 
                 .forecast-datetime,
                 .forecast-description {
                     flex: 1;
                 }
+            }
+
+            .forecast:hover {
+                background-color: #f0f0f0;
+            }
+
+            .forecast.forecast-is-selected:after {
+                content: '\2190';
             }
         }
     }
@@ -66,5 +84,9 @@ $baseContrastColor: #FFF;
     .list {
         list-style: none;
         padding-left: 0;
+    }
+
+    .list-title {
+        text-align: center;
     }
 }

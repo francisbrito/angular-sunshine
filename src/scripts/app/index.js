@@ -23,6 +23,7 @@ module.exports = function init() {
 
         this.forecasts = [];
         this.selectedForecast = {};
+        this.selectedForecastIdx = 0;
 
         weatherService
             .fetchWeeklyForecastFor(this.location)
@@ -33,7 +34,57 @@ module.exports = function init() {
 
 
         this.isLocationSet = () => !!$window.localStorage.getItem('sunshine.settings.location');
-        this.selectForecast = (idx) => this.selectedForecast = this.forecasts[idx];
+        this.selectForecast = (idx) => {
+            this.selectedForecast = this.forecasts[idx];
+            this.selectedForecastIdx = idx;
+        }; 
+        this.isForecastSelected = (idx) => {
+            return this.selectedForecastIdx === idx;
+        };
+        this.sunshineIconFor = (icon) => {
+            var ret  = 'wi wi-umbrella';
+
+            switch (icon) {
+                case '01d':
+                    ret = 'wi wi-day-sunny';
+                    break;
+                case '01n':
+                    ret = 'wi wi-night-clear';
+                    break;
+                case '02d':
+                    ret = 'wi wi-day-sunny-overcast';
+                    break;
+                case '02n':
+                    ret = 'wi wi-night-cloudy';
+                    break;
+                case '03d':
+                    ret = 'wi wi-cloud';
+                    break;
+                case '03n':
+                    ret = 'wi wi-cloud';
+                    break;
+                case '04d':
+                    ret = 'wi wi-cloudy';
+                    break;
+                case '04n':
+                    ret = 'wi wi-cloudy';
+                    break;
+                case '09d':
+                    ret = 'wi wi-sprinkle';
+                    break;
+                case '09n':
+                    ret = 'wi wi-sprinkle';
+                    break;
+                case '10d':
+                    ret = 'wi wi-day-showers';
+                    break;
+                case '10n':
+                    ret = 'wi wi-night-showers';
+                    break;
+            }
+
+            return ret;
+        };
     }]);
 
     app.controller('SettingsController', function ($window) {
