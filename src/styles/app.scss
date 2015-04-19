@@ -4,6 +4,10 @@ $baseColor: #21B1DF;
 $baseFontSize: 16px;
 $baseContrastColor: #FFF;
 
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
 [ng-app="sunshine"] {
     width: 100%;
     height: 100%;
