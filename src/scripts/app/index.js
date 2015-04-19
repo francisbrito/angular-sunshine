@@ -5,6 +5,8 @@ var moment = require('moment'),
     ngRoute = require('angular-route'),
     ngAnimate = require('angular-animate');
 
+require('angular-loading-bar');
+
 moment.locale('en', {
     calendar : {
         lastDay : '[Yesterday]',
@@ -17,7 +19,7 @@ moment.locale('en', {
 });
 
 module.exports = function init() {
-    var app = angular.module('sunshine', [ngRoute, ngAnimate]);
+    var app = angular.module('sunshine', [ngRoute, ngAnimate, 'angular-loading-bar']);
 
     app.controller('WeatherController', ['$window', 'WeatherService', function ($window, weatherService) {
         this.location = $window.localStorage.getItem('sunshine.settings.location');
@@ -121,6 +123,10 @@ module.exports = function init() {
             return moment(date).calendar();
         };
     });
+
+    app.config(['cfpLoadingBarProvider', function (LoadingBarProvider) {
+        LoadingBarProvider.includeSpinner = false;
+    }]);
 
     return app;
 };

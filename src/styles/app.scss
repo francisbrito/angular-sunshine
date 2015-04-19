@@ -122,4 +122,19 @@ $baseContrastColor: #FFF;
     .list-title {
         text-align: center;
     }
+
+    #loading-bar {
+        .bar {
+            background: $baseContrastColor;
+        }
+
+        .peg {
+            box-shadow: $baseContrastColor 1px 0 6px 1px;
+        }
+    }
+
+    #loading-bar-spinner .spinner-icon {
+        border-top-color: $baseContrastColor;
+        border-left-color: $baseContrastColor;
+    }
 }
