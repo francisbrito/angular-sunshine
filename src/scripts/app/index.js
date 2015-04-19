@@ -1,6 +1,7 @@
 'use strict';
 
-var angular = require('angular'),
+var moment = require('moment'),
+    angular = require('angular'),
     ngRoute = require('angular-route');
 
 module.exports = function init() {
@@ -49,6 +50,12 @@ module.exports = function init() {
                         .error((data, status, header, config) => reject({data, status, header, config}));
                 });
             }
+        };
+    });
+
+    app.filter('fromNow', function () {
+        return function (date) {
+            return moment(date).calendar();
         };
     });
 

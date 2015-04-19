@@ -21,7 +21,7 @@
             </div>
             <ul class="list-forecast list">
                 <li class="forecast" ng-repeat="forecast in weather.forecasts" ng-click="weather.selectForecast($index)">
-                    {{forecast.dt * 1000 | date:"dd/MM/yyyy"}} - {{forecast.weather[0].description}}
+                    {{forecast.dt * 1000 | fromNow}} - {{forecast.weather[0].description}}
                 </li>
             </ul>
         </section>
