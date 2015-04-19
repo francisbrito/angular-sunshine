@@ -15,6 +15,7 @@
         </section>
         <section class="view-weather view" ng-controller="WeatherController as weather" ng-show="weather.isLocationSet()" ng-cloak>
             <div class="selected-forecast">
+                <img ng-src="http://openweathermap.org/img/w/{{weather.selectedForecast.weather[0].icon}}.png">
                 <h3>{{weather.selectedForecast.weather[0].main}}</h3>
                 <p>{{weather.selectedForecast.weather[0].description}}</p>
             </div>
