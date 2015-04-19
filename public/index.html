@@ -20,8 +20,11 @@
                 <p>{{weather.selectedForecast.weather[0].description}}</p>
             </div>
             <ul class="list-forecast list">
+                <h2>Forecasts</h2>
                 <li class="forecast" ng-repeat="forecast in weather.forecasts" ng-click="weather.selectForecast($index)">
-                    {{forecast.dt * 1000 | fromNow}} - {{forecast.weather[0].description}}
+                    <img class="forecast-icon" ng-src="http://openweathermap.org/img/w/{{forecast.weather[0].icon}}.png">
+                    <h4 class="forecast-description">{{forecast.weather[0].description}}</h4>
+                    <span class="forecast-datetime">{{forecast.dt * 1000 | fromNow}}</span>
                 </li>
             </ul>
         </section>

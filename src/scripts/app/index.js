@@ -4,6 +4,17 @@ var moment = require('moment'),
     angular = require('angular'),
     ngRoute = require('angular-route');
 
+moment.locale('en', {
+    calendar : {
+        lastDay : '[Yesterday]',
+        sameDay : '[Today]',
+        nextDay : '[Tomorrow]',
+        lastWeek : '[last] dddd',
+        nextWeek : 'dddd',
+        sameElse : 'L'
+    }
+});
+
 module.exports = function init() {
     var app = angular.module('sunshine', [ngRoute]);
 

@@ -26,7 +26,7 @@ $baseContrastColor: #FFF;
         flex-direction: row;
 
         .selected-forecast {
-            flex: 3;
+            flex: 4;
             color: $baseContrastColor;
             display: flex;
             align-self: center;
@@ -49,6 +49,17 @@ $baseContrastColor: #FFF;
             margin: 0;
             padding: 1rem;
             background-color: $baseContrastColor;
+
+            .forecast {
+                display: flex;
+                text-align: left;
+                align-items: center;
+
+                .forecast-datetime,
+                .forecast-description {
+                    flex: 1;
+                }
+            }
         }
     }
 
