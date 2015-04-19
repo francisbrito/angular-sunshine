@@ -34,6 +34,7 @@ $baseContrastColor: #FFF;
             color: $baseContrastColor;
             display: flex;
             align-self: center;
+            transition: 0.125s linear all;
             align-items: center;
             flex-direction: column;
 
@@ -52,17 +53,27 @@ $baseContrastColor: #FFF;
             }
         }
 
+        .selected-forecast.ng-enter {
+            opacity: 0;
+        }
+
+        .selected-forecast.ng-enter.ng-active {
+            opacity: 1;
+        }
+
         .list-forecast {
             flex: 1;
             margin: 0;
             padding: 1rem;
             overflow: auto;
+            transition: 0.125s linear all;
             background-color: $baseContrastColor;
 
             .forecast {
                 cursor: pointer;
                 display: flex;
                 text-align: center;
+                transition: 0.125s linear all;
                 align-items: center;
                 border-bottom: 1px solid #EEE;
 
@@ -84,6 +95,22 @@ $baseContrastColor: #FFF;
             .forecast.forecast-is-selected:after {
                 content: '\2190';
             }
+
+            .forecast.ng-enter {
+                opacity: 0;
+            }
+
+            .forecast.ng-enter.ng-active {
+                opacity: 1;
+            }
+        }
+
+        .list-forecast.ng-enter {
+            opacity: 0;
+        }
+
+        .list-forecast.ng-enter.ng-active {
+            opacity: 1;
         }
     }
 

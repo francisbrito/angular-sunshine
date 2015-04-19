@@ -2,7 +2,8 @@
 
 var moment = require('moment'),
     angular = require('angular'),
-    ngRoute = require('angular-route');
+    ngRoute = require('angular-route'),
+    ngAnimate = require('angular-animate');
 
 moment.locale('en', {
     calendar : {
@@ -16,13 +17,13 @@ moment.locale('en', {
 });
 
 module.exports = function init() {
-    var app = angular.module('sunshine', [ngRoute]);
+    var app = angular.module('sunshine', [ngRoute, ngAnimate]);
 
     app.controller('WeatherController', ['$window', 'WeatherService', function ($window, weatherService) {
         this.location = $window.localStorage.getItem('sunshine.settings.location');
 
         this.forecasts = [];
-        this.selectedForecast = {};
+        this.selectedForecast = null;
         this.selectedForecastIdx = 0;
 
         weatherService

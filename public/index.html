@@ -5,24 +5,23 @@
         <meta charset="utf-8">
         <meta name="viewport" content="initial-scale=1.0,width=device-width">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/1.3.2/css/weather-icons.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/1.3.2/font/weathericons-regular-webfont.woff">
         <link rel="stylesheet" href="/styles/app.css">
     </head>
     <body>
-        <section class="view-settings view" ng-controller="SettingsController as settings" ng-hide="settings.isLocationSet()" ng-cloak>
+         <section class="view-settings view" ng-controller="SettingsController as settings" ng-hide="settings.isLocationSet()" ng-cloak>
             <form ng-submit="settings.updateLocation()">
                 <label for="location">What's your current location?</label>
                 <input type="text" name="location" placeholder="e.g: Santo Domingo, DO" ng-model="settings.location" >
             </form>
         </section>
         <section class="view-weather view" ng-controller="WeatherController as weather" ng-show="weather.isLocationSet()" ng-cloak>
-            <div class="selected-forecast">
+            <div class="selected-forecast" ng-if="!!weather.selectedForecast">
                 <!-- <img ng&#45;src="http://openweathermap.org/img/w/{{weather.selectedForecast.weather[0].icon}}.png"> -->
                 <i class="forecast-icon" ng-class="weather.sunshineIconFor(weather.selectedForecast.weather[0].icon)"></i>
                 <h3>{{weather.selectedForecast.weather[0].main}}</h3>
                 <p>{{weather.selectedForecast.weather[0].description}}</p>
             </div>
-            <ul class="list-forecast list">
+            <ul class="list-forecast list" ng-if="weather.forecasts.length">
                 <h2 class="list-title">Forecasts</h2>
                 <li class="forecast" ng-repeat="forecast in weather.forecasts" ng-click="weather.selectForecast($index)" ng-class="{'forecast-is-selected': weather.isForecastSelected($index)}">
                     <i class="forecast-icon" ng-class="weather.sunshineIconFor(forecast.weather[0].icon)"></i>
