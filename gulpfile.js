@@ -28,7 +28,7 @@ gulp.task('build-es6', function () {
         .require('./src/scripts/bootstrap.js', {entry: true})
         .bundle()
         .on('error', function (err) {
-            gutil.log('Browserify error.');
+            gutil.log('Browserify error.', err);
         })
         .pipe(plumber())
         .pipe(source('bootstrap.js'))
