@@ -138,3 +138,15 @@ $baseContrastColor: #FFF;
         border-left-color: $baseContrastColor;
     }
 }
+
+@media screen and (min-width: 1024px) {
+    [ng-app='sunshine'] {
+        .view-weather {
+            flex-direction: row;
+
+            .selected-forecast {
+                flex: 4;
+            }
+        }
+    } 
+}
