@@ -335,15 +335,15 @@ th, td {
     height: 100%; }
   [ng-app="sunshine"] .view-weather {
     display: flex;
-    flex-direction: row; }
+    flex-direction: column; }
     [ng-app="sunshine"] .view-weather .selected-forecast {
-      flex: 4;
+      flex: 1;
       color: #FFF;
       display: flex;
-      align-self: center;
       transition: 0.125s linear all;
       align-items: center;
-      flex-direction: column; }
+      flex-direction: column;
+      justify-content: center; }
       [ng-app="sunshine"] .view-weather .selected-forecast h3, [ng-app="sunshine"] .view-weather .selected-forecast p {
         margin: 0; }
       [ng-app="sunshine"] .view-weather .selected-forecast h3 {
@@ -399,3 +399,9 @@ th, td {
   [ng-app="sunshine"] #loading-bar-spinner .spinner-icon {
     border-top-color: #FFF;
     border-left-color: #FFF; }
+
+@media screen and (min-width: 1024px) {
+  [ng-app='sunshine'] .view-weather {
+    flex-direction: row; }
+    [ng-app='sunshine'] .view-weather .selected-forecast {
+      flex: 4; } }
