@@ -19,7 +19,7 @@ moment.locale('en', {
 });
 
 //Dictionary to translate icon names to resurce names
-iconDefinitions = {
+var iconDefinitions = {
     '01d' : 'wi wi-day-sunny',
     '01n' : 'wi wi-night-clear',
     '02d' : 'wi wi-day-sunny-overcast',
@@ -62,8 +62,8 @@ module.exports = function init() {
         };
 
         this.sunshineIconFor = (icon) => {
-            //var ret =
-            return iconDefinitions[icon] || 'wi wi-umbrella';
+            //If the icon is not in the dict, default to '' (no icon)
+            return iconDefinitions[icon] || '';
         };
     }]);
 
