@@ -46,3 +46,6 @@ Session.vim
 public/scripts
 public/styles
 public/templates
+
+### fk OS X ###
+.DS_Store
