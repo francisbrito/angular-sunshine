@@ -6,5 +6,5 @@ This app consumes the [Open Weather  Map API](http://openweathermap.org/api) to 
 
 
 ##Stuff I've learned
-* [Rony](github.com/ronyb29) never forgets.
+* @ronyb29 never forgets.
 * more stuff, idk.
