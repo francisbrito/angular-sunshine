@@ -18,6 +18,22 @@ moment.locale('en', {
     }
 });
 
+//Dictionary to translate icon names to resurce names
+var iconDefinitions = {
+    '01d' : 'wi wi-day-sunny',
+    '01n' : 'wi wi-night-clear',
+    '02d' : 'wi wi-day-sunny-overcast',
+    '02n' : 'wi wi-night-cloudy',
+    '03d' : 'wi wi-cloud',
+    '03n' : 'wi wi-cloud',
+    '04d' : 'wi wi-cloudy',
+    '04n' : 'wi wi-cloudy',
+    '09d' : 'wi wi-sprinkle',
+    '09n' : 'wi wi-sprinkle',
+    '10d' : 'wi wi-day-showers',
+    '10n' : 'wi wi-night-showers'
+}
+
 module.exports = function init() {
     var app = angular.module('sunshine', [ngRoute, ngAnimate, 'angular-loading-bar']);
 
@@ -40,53 +56,14 @@ module.exports = function init() {
         this.selectForecast = (idx) => {
             this.selectedForecast = this.forecasts[idx];
             this.selectedForecastIdx = idx;
-        }; 
+        };
         this.isForecastSelected = (idx) => {
             return this.selectedForecastIdx === idx;
         };
+
         this.sunshineIconFor = (icon) => {
-            var ret  = 'wi wi-umbrella';
-
-            switch (icon) {
-                case '01d':
-                    ret = 'wi wi-day-sunny';
-                    break;
-                case '01n':
-                    ret = 'wi wi-night-clear';
-                    break;
-                case '02d':
-                    ret = 'wi wi-day-sunny-overcast';
-                    break;
-                case '02n':
-                    ret = 'wi wi-night-cloudy';
-                    break;
-                case '03d':
-                    ret = 'wi wi-cloud';
-                    break;
-                case '03n':
-                    ret = 'wi wi-cloud';
-                    break;
-                case '04d':
-                    ret = 'wi wi-cloudy';
-                    break;
-                case '04n':
-                    ret = 'wi wi-cloudy';
-                    break;
-                case '09d':
-                    ret = 'wi wi-sprinkle';
-                    break;
-                case '09n':
-                    ret = 'wi wi-sprinkle';
-                    break;
-                case '10d':
-                    ret = 'wi wi-day-showers';
-                    break;
-                case '10n':
-                    ret = 'wi wi-night-showers';
-                    break;
-            }
-
-            return ret;
+            //If the icon is not in the dict, default to '' (no icon)
+            return iconDefinitions[icon] || '';
         };
     }]);
 
