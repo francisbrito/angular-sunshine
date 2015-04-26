@@ -65,11 +65,19 @@ gulp.task('livereload', function () {
 });
 
 gulp.task('test-e2e', function () {
+    connect.server({
+        port: 3001,
+        root: './public'
+    });
+
     return gulp.src('./tests/*-spec.js')  
         .pipe(protractor({
             configFile: './tests/protractor.conf.js'
         }))
         .on('error', function (err) {
             throw err;
+        })
+        .on('end', function () {
+            connect.serverClose();
         });
 });
