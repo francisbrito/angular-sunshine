@@ -15,5 +15,5 @@ gulp
 Application should be running at [localhost:3000](http://localhost:3000/).
 
 ## Stuff I've learned
-* @ronyb29 never forgets.
+* [@ronyb29](https://github.com/ronyb29) never forgets.
 * more stuff, idk.
