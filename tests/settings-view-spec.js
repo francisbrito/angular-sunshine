@@ -7,7 +7,7 @@ describe('settings view', function () {
     }); 
 
     it('should hide if a location is set.', function () {
-        browser.get('http://localhost:3000');
+        browser.get('http://localhost:3001');
         browser.executeScript('window.localStorage.setItem("sunshine.settings.location", "Santo Domingo, DO");');
         
         expect(this.settingsView.getAttribute('class')).toMatch('ng-hide');
