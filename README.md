@@ -14,6 +14,13 @@ gulp
 
 Application should be running at [localhost:3000](http://localhost:3000/).
 
+## Testing
+
+### E2E
+```sh
+gulp test-e2e
+```
+
 ## Stuff I've learned
 * [@ronyb29](https://github.com/ronyb29) never forgets.
 * more stuff, idk.
