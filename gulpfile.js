@@ -9,7 +9,8 @@ var gulp = require('gulp'),
     plumber = require('gulp-plumber'),
     babelify = require('babelify'),
     sourcemap = require('gulp-sourcemaps'),
-    browserify = require('browserify');
+    browserify = require('browserify'),
+    protractor = require('gulp-protractor').protractor;
 
 gulp.task('default', ['watch-www', 'watch-src', 'watch-styles', 'build',  'serve'], function () {});
 
@@ -61,4 +62,14 @@ gulp.task('watch-styles', function () {
 gulp.task('livereload', function () {
     return gulp.src('./public/**/*.{js,html,css}')
         .pipe(connect.reload());
+});
+
+gulp.task('test-e2e', function () {
+    return gulp.src('./tests/*-spec.js')  
+        .pipe(protractor({
+            configFile: './tests/protractor.conf.js'
+        }))
+        .on('error', function (err) {
+            throw err;
+        });
 });
