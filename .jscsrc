@@ -1,0 +1,5 @@
+{
+    "verbose": true,
+    "validateIndentation": 4
+    "disallowSpacesInFunctionExpression": false
+}
